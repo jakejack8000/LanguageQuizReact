@@ -6,17 +6,14 @@ import Quiz from './components/Quiz.js'
 import Result from "./components/Result";
 
 export default function App() {
-  let [quizOpen,setQuizOpen] = useState(false)
-    const [showResult,setShowResult] = useState(false)
-    if(showResult){quizOpen =false}
-    console.log(showResult+ " SHOOOWWW RESULT")
+    const [screen,setScreen] = useState('HomePage')
   return (
-    <div>
+    <div className="h-100">
       <header className="bg-warning p-2 text-light text-bold">English Exercise</header>
-      <div className="d-flex flex-column justify-content-center align-items-center ">
-      {!quizOpen && !showResult && <HomePage setQuizOpen={setQuizOpen}/>}
-      {quizOpen  && <Quiz setShowResult={setShowResult}/>}
-      {showResult &&<Result setShowResult={setShowResult} setQuizOpen={setQuizOpen}/>}
+      <div className="d-flex flex-column justify-content-center align-items-center h-100  ">
+      {screen==='HomePage' && <HomePage setScreen={setScreen}/>}
+      {screen==='Quiz'  && <Quiz setScreen={setScreen}/>}
+      {screen==='Result' &&<Result setScreen={setScreen}/>}
       </div>
     </div>
   );

@@ -1,11 +1,13 @@
-import React,{useState} from 'react'
+import React from 'react'
 import {useSelector,useDispatch} from "react-redux";
 import {INCREMENT_QUESTION,ADD_ANSWER} from "../store/quizSlice";
 const Question = ({setShowFeedback}) => {
-
     const dispatch = useDispatch()
     const currentQuestion = useSelector((state)=>state.currentQuestion)
     const words = useSelector((state)=>state.words)
+    console.log(words)
+    console.log(words.length)
+    if(words.length === 0){return ''}
     const AllPos = ["adjective","adverb","noun","verb"]
     const {word,pos} = words[currentQuestion]
     const checkAnswer = (answer) => {

@@ -3,18 +3,17 @@ import right from '../images/right.png'
 import wrong from '../images/wrong.png'
 import {useSelector} from "react-redux";
 
-const QuestionFeedback = ({setShowFeedback,setShowResult}) => {
+const QuestionFeedback = ({setShowFeedback,setScreen}) => {
     const answers = useSelector(state=>state.answers)
-    console.log(answers)
     const {word,answer,isAnswerCorrect} = answers[answers.length-1]
-    console.log(word,answer,isAnswerCorrect)
+
     return <div className="d-flex flex-column align-items-center justify-content-center p-3">
-        <img className="w-25 mb-2" src={isAnswerCorrect ? right:wrong}/>
-        <p>The POS for word {word} is {isAnswerCorrect ? '' : 'NOT'} {answer}</p>
+        <img style={{width:'9%'}} className="mb-2" src={isAnswerCorrect ? right:wrong}/>
+        <p>The POS for word <strong>{word}</strong> is {isAnswerCorrect ? '' : 'NOT'} <strong>{answer}</strong></p>
         <button className="btn btn-primary" onClick={()=>{
             setShowFeedback(false)
             if(answers.length===10){
-                setShowResult(true)
+                setScreen('Result')
             }
         }}>Continue</button>
     </div>
