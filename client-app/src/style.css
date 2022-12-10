@@ -29,7 +29,9 @@ body {
   width:50%;
   min-height: 250px;
 }
-
+.feedback {
+  padding-bottom: 3rem;
+}
 .btn {
   min-width: 15%;
 }
@@ -37,8 +39,12 @@ body {
 @media only screen and (max-width: 1000px) {
   .quiz-box{
     width:100%;
-    min-height: 315px;
+    min-height: 330px;
     justify-content: start !important;
+  }
+  .feedback {
+    padding-top:3rem;
+    padding-bottom: 0;
   }
   .btn {
     min-width: 38%;

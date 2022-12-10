@@ -22,7 +22,7 @@ const Question = ({setShowFeedback}) => {
     return <div className="d-flex flex-column p-4">
         <div>{currentQuestion+1}. The word <strong>"{word}"</strong> is a ...</div>
         <div className="d-flex justify-content-between p-2 mt-5 flex-wrap">
-            {AllPos.map((answer,i)=>{
+            {AllPos.map((answer,i)=>{           //Map each POS into an answer button
                 return <button key={i} className="btn btn-warning m-3" onClick={()=>checkAnswer(answer)}>{answer}</button>
             })}
         </div>

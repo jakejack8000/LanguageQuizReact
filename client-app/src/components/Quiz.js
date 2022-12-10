@@ -5,8 +5,9 @@ import QuestionFeedback from "./QuestionFeedback";
 import LoadingSpinner from "./LoadingSpinner";
 import {useDispatch} from "react-redux";
 import {INIT_QUIZ} from "../store/quizSlice";
+import {endpoint_url} from "../configurations";
 
-const Quiz = ({setScreen}) => {
+const Quiz = () => {
   const [isLoading,setIsLoading] = useState(true)   //Shows the Loading spinner while loading
   const dispatch = useDispatch()
   const [showFeedback,setShowFeedback] = useState(false)  //This state toggles after each question to show
@@ -15,7 +16,7 @@ const Quiz = ({setScreen}) => {
   // Fetches the words from the API and initializes new quiz with it
   useEffect(()=>{
     const getWords = async () => {
-      const response = await fetch('http://localhost:4000/words')
+      const response = await fetch(endpoint_url+'/words')
       const json = await response.json()
       setIsLoading(false)
       return json.words
@@ -27,7 +28,7 @@ const Quiz = ({setScreen}) => {
     <QuizHeader />
     {isLoading && <LoadingSpinner/>}
     {!showFeedback && <Question setShowFeedback={setShowFeedback}/>}
-    {showFeedback && <QuestionFeedback setShowFeedback={setShowFeedback} setScreen={setScreen}/> }
+    {showFeedback && <QuestionFeedback setShowFeedback={setShowFeedback}/> }
   </div>
 }
 

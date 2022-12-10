@@ -6,7 +6,8 @@ const initialState = {
     quizTime:{minutes:0,seconds:0},
     bestScore: 0,
     bestRanking: 0,
-    currentQuestion: 0
+    currentQuestion: 0,
+    finishedQuiz:false
 }
 
 const quizSlice = createSlice({
@@ -26,18 +27,17 @@ const quizSlice = createSlice({
         },
         INCREMENT_QUESTION: (state) => {
             state.currentQuestion++
+            if(state.currentQuestion===state.words.length){
+                state.finishedQuiz = true
+            }
         },
         SET_BEST_SCORE:(state,action)=>{
           const score = action.payload.score
           const ranking = action.payload.ranking
-            console.log("---------------------------------")
             if(state.bestScore<score){
               state.bestScore = score
               state.bestRanking = ranking
             }
-            console.log(ranking)
-            console.log("---------------------------------")
-
         },
         SET_TIME:(state,action)=>{
             state.quizTime = action.payload

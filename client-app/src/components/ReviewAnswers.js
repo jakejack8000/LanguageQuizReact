@@ -1,10 +1,16 @@
 import React from 'react'
 import {useSelector,useDispatch} from "react-redux";
-import {CLEAR_ANSWERS} from "../store/quizSlice";
+import {Link} from 'react-router-dom'
+import {CLEAR_ANSWERS} from '../store/quizSlice';
+import NoQuizData from './NoQuizData'
 
-const ReviewAnswers = ({setScreen}) => {
+const ReviewAnswers = () => {
 const dispatch = useDispatch()
 const answers = useSelector(state=>state.answers)
+const finishedQuiz = useSelector(state=>state.finishedQuiz)
+if (!finishedQuiz) {
+    return <NoQuizData/>
+}
     return <div className='p-4 m-4'>
     <table className="table bg-light">
         <thead>
@@ -16,7 +22,7 @@ const answers = useSelector(state=>state.answers)
         </tr>
         </thead>
         <tbody>
-        {answers.map((ans,i)=><tr>
+        {answers.map((ans,i)=><tr key={i}>
             <th scope="col">{i+1}</th>
             <th scope="col">{ans.word}</th>
             <th scope="col">{ans.answer}</th>
@@ -24,10 +30,11 @@ const answers = useSelector(state=>state.answers)
         </tr>)}
         </tbody>
     </table><div className='d-flex justify-content-center'>
-    <button className='btn btn-warning m-1' onClick={() => {
+    <Link to='/' className='btn btn-warning m-1' onClick={() => {
+        }}>Homepage</Link>
+    <Link to='/quiz' className='btn btn-warning m-1' onClick={() => {
         dispatch(CLEAR_ANSWERS())
-        setScreen('Quiz')
-    }}>Start New Quiz</button>
+    }}>Start New Quiz</Link>
     </div>
     </div>
 }

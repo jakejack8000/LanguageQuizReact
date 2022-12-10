@@ -6,11 +6,9 @@ import App from './App';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
-console.log(store)
+addEventListener('popstate', () => { window.location.replace('/') });
 root.render(
-  <StrictMode>
       <Provider store={store}>
     <App />
       </Provider>
-  </StrictMode>
 );
