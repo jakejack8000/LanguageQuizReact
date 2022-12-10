@@ -34,8 +34,9 @@ const Result = () => {
         getRanking().then((json)=>{
             const rank = json.rank
             setRank(rank)
-            setIsLoading(false)
             dispatch(SET_BEST_SCORE({score,ranking:rank}))
+            setIsLoading(false)
+
         })
     },[])
 
