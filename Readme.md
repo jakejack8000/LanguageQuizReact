@@ -1,6 +1,5 @@
 Hello and welcome to English Exercise Quiz App
 
-This App is intended for Samuel Essam's Javascript Developer role job application at Nagwa Educational Company
 
 ## **Running The App**
 
@@ -13,8 +12,9 @@ Open a new terminal window and cd into project folder and run:
     cd client-app
     npm install
 
-    note: if npm returns errors,
-    please try: npm install --legacy-peer-deps
+note: if npm returns errors,try:
+
+    npm install --legacy-peer-deps
     
 Repeat the previous steps for Server app:
 
