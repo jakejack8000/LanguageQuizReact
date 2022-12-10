@@ -6,7 +6,7 @@ const HomePage = ({setScreen}) => {
    <h2 className="text-center">Vocabulary Quiz</h2>
    <h1  className="text-center">Welcome to English Quiz</h1>
    <p className="text-center">Improve your skills and test your grammar by clicking the button below</p>
-   <button onClick={()=>{setScreen('Quiz')}} className="btn btn-warning text-light">Start Quiz</button>
+   <button onClick={()=>{setScreen('Quiz')}} className="btn btn-warning">Start Quiz</button>
    </div>
    )
 } 

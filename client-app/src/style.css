@@ -24,3 +24,25 @@ body {
   width:100%;
   height:100%
 }
+
+.quiz-box {
+  width:50%;
+  min-height: 250px;
+}
+
+.btn {
+  min-width: 15%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .quiz-box{
+    width:100%;
+    min-height: 315px;
+    justify-content: start !important;
+  }
+  .btn {
+    min-width: 38%;
+  }
+}
+
+
